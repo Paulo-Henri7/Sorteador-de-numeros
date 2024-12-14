@@ -21,15 +21,20 @@ function sortear() {
 }
 
 function sortearNums(quantidadeDeNumeros, ateNumero, doNumero) {
-    while (quantidadeDeNumeros > 0) {
-        let numerosEscolhidos = Math.floor(Math.random() * (ateNumero - doNumero + 1)) + doNumero;
-        while (lista.includes(numerosEscolhidos)) {
-            numerosEscolhidos = Math.floor(Math.random() * (ateNumero - doNumero + 1)) + doNumero;
+
+    if (quantidadeDeNumeros > (ateNumero - doNumero + 1)) {
+        alert(`O campo quantidade de números deve ser menor ou igual ao intervalo informado entre ${doNumero} até ${ateNumero}`);
+    } else {
+        while (quantidadeDeNumeros > 0) {
+            let numerosEscolhidos = Math.floor(Math.random() * (ateNumero - doNumero + 1)) + doNumero;
+            while (lista.includes(numerosEscolhidos)) {
+                numerosEscolhidos = Math.floor(Math.random() * (ateNumero - doNumero + 1)) + doNumero;
+            }
+            lista.push(numerosEscolhidos);
+            quantidadeDeNumeros--;
         }
-        lista.push(numerosEscolhidos);
-        quantidadeDeNumeros--;
+        return lista;
     }
-    return lista;
 }
 
 function msg() {
