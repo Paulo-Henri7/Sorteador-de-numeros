@@ -5,11 +5,19 @@ function sortear() {
     let doNumero = parseInt(document.getElementById("de").value);
     let ateNumero = parseInt(document.getElementById("ate").value);
 
-    console.log(quantidadeDeNumeros, doNumero, ateNumero);
+    if (doNumero > ateNumero) {
+        alert("ERRO, o número inicial é maior que o número final.");
+        msg();
+        ligarDesligarBotao();
+        reiniciar();
+    } else {
 
-    console.log(sortearNums(quantidadeDeNumeros, ateNumero, doNumero));
-    msg();
-    ligarDesligarBotao();
+        console.log(quantidadeDeNumeros, doNumero, ateNumero);
+
+        console.log(sortearNums(quantidadeDeNumeros, ateNumero, doNumero));
+        msg();
+        ligarDesligarBotao();
+    }
 }
 
 function sortearNums(quantidadeDeNumeros, ateNumero, doNumero) {
